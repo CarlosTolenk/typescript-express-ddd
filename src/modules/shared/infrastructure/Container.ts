@@ -5,9 +5,11 @@ import {Router} from './Router';
 
 //Shared infrastructure implementations
 import {ErrorMiddleware} from './express/ErrorMiddleware';
-import {ApiRouter} from "./express/ApiRouter";
 import {ServerLogger} from './logger';
 import {config} from '../../../config';
+
+// Modules infrastructure implementations
+import {ModuleHealth} from "../../health/infrastructure/container/moduleHealth";
 
 export class Container {
     private readonly container: AwilixContainer;
@@ -30,8 +32,9 @@ export class Container {
                 logger: asClass(ServerLogger).singleton(),
             })
             .register({
-                errorMiddleware: asClass(ErrorMiddleware).singleton(), apiRouter: asFunction(ApiRouter).singleton()
+                errorMiddleware: asClass(ErrorMiddleware).singleton(),
             })
+            .register(ModuleHealth)
     }
 
     public invoke(): AwilixContainer {

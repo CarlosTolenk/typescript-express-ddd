@@ -3,8 +3,6 @@ import { createLogger, format, transports, Logger } from 'winston';
 import appRoot from 'app-root-path';
 import path from 'path';
 import fs from 'fs';
-import morgan from 'morgan';
-import { Handler } from 'express';
 
 import {ILogger} from "../../domain/ILogger";
 import { Configuration } from '../../../../config';
@@ -57,33 +55,23 @@ export class ServerLogger implements ILogger {
     });
   }
 
-  public stream(): Handler {
-    return morgan('combined', {
-      stream: {
-        write: (message: string): void => {
-          this.info(message.trim());
-        }
-      }
-    });
+  public debug(message: string, metadata = {}): void {
+    this.logger.debug(message, metadata);
   }
 
-  public debug(message: string): void {
-    this.logger.debug(message);
+  public info(message: string, metadata = {}): void {
+    this.logger.info(message, metadata);
   }
 
-  public info(message: string): void {
-    this.logger.info(message);
+  public error(message: string, metadata = {}): void {
+    this.logger.error(message, metadata);
   }
 
-  public error(message: string): void {
-    this.logger.error(message);
+  public warning(message: string, metadata = {}): void {
+    this.logger.warn(message, metadata);
   }
 
-  public warning(message: string): void {
-    this.logger.warn(message);
-  }
-
-  public critical(message: string): void {
-    this.logger.crit(message);
+  public critical(message: string, metadata = {}): void {
+    this.logger.crit(message, metadata);
   }
 }
