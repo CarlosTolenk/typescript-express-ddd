@@ -14,6 +14,7 @@ export type Configuration = {
   APP_NAME: string;
   APP_DATABASE_URL: string;
   APP_LOG_LEVEL: string;
+  APP_CONTEXT_DATABASE: string
 };
 
 let currentConfig: Configuration = DEVELOPMENT;

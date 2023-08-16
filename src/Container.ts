@@ -6,6 +6,10 @@ import {Router} from './modules/shared/infrastructure/Router';
 //Shared infrastructure implementations
 import {ErrorMiddleware} from './modules/shared/infrastructure/express/ErrorMiddleware';
 import {ServerLogger} from './modules/shared/infrastructure/logger';
+import {TypeOrmClientFactory} from "./modules/shared/infrastructure/persistence/TypeOrmClientFactory";
+
+
+// Configuration
 import {config} from './config';
 
 // Modules infrastructure implementations
@@ -30,6 +34,7 @@ export class Container {
                 config: asValue(config),
                 router: asFunction(Router).singleton(),
                 logger: asClass(ServerLogger).singleton(),
+                _clientFactoryDB: asFunction(TypeOrmClientFactory).singleton(),
             })
             .register({
                 errorMiddleware: asClass(ErrorMiddleware).singleton(),
