@@ -1,5 +1,5 @@
 import {Server} from "./modules/shared/infrastructure/Server";
-import {Container} from "./modules/shared/infrastructure/Container";
+import {Container} from "./Container";
 import {Configuration} from "./config";
 
 const container = new Container();

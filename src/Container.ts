@@ -1,15 +1,15 @@
 import {asClass, asFunction, asValue, AwilixContainer, createContainer, InjectionMode} from 'awilix';
-import {Server} from './Server';
-import {Router} from './Router';
+import {Server} from './modules/shared/infrastructure/Server';
+import {Router} from './modules/shared/infrastructure/Router';
 
 
 //Shared infrastructure implementations
-import {ErrorMiddleware} from './express/ErrorMiddleware';
-import {ServerLogger} from './logger';
-import {config} from '../../../config';
+import {ErrorMiddleware} from './modules/shared/infrastructure/express/ErrorMiddleware';
+import {ServerLogger} from './modules/shared/infrastructure/logger';
+import {config} from './config';
 
 // Modules infrastructure implementations
-import {ModuleHealth} from "../../health/infrastructure/container/moduleHealth";
+import {ModuleHealth} from "./modules/health/infrastructure/container/ModuleHealth";
 
 export class Container {
     private readonly container: AwilixContainer;
