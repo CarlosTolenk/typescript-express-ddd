@@ -4,9 +4,12 @@ const TEST: Configuration = {
     NODE_ENV: 'test',
     PORT: 3000,
     APP_NAME: 'express-ts-test-ddd',
-    APP_DATABASE_URL: '',
     APP_LOG_LEVEL: 'debug',
-    APP_CONTEXT_DATABASE: 'wallet-test'
+    DATABASE_APP_CONTEXT: 'wallet-test',
+    DATABASE_APP_PORT: 5432,
+    DATABASE_APP_PASSWORD: '',
+    DATABASE_APP_USERNAME: '',
+    DATABASE_APP_HOST: ''
 };
 
 export default TEST;

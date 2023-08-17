@@ -1,14 +1,17 @@
+import {Configuration} from "../../../../config";
 import {TypeOrmConfig} from "./TypeOrmConfig";
 
 
 export class TypeOrmConfigFactory {
-    static createConfig(): TypeOrmConfig {
+    static createConfig(configuration: Configuration): TypeOrmConfig {
         return {
-            host: '',
-            username: '',
-            password: '',
-            port: 5000,
-            database: ''
+            type: "mysql",
+            host: configuration.DATABASE_APP_HOST,
+            username: configuration.DATABASE_APP_USERNAME,
+            password: configuration.DATABASE_APP_PASSWORD,
+            port: configuration.DATABASE_APP_PORT,
+            database: configuration.DATABASE_APP_CONTEXT,
+            target: 'production'
         }
     }
 }
