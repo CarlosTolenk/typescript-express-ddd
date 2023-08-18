@@ -13,7 +13,7 @@ export class GetAllOrdersController implements IController {
   async invoke(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
       this.logger.info('Try Invoke', { controller: GetAllOrdersController.name });
-      const orders = await this.getAllOrders.invoke();
+      const orders = await this.getAllOrders.run();
       return res.json({ orders: orders });
     } catch (error) {
       next(new ErrorHandler(error.message, StatusCode.INTERNAL_SERVER_ERROR));
