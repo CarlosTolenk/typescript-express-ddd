@@ -1,8 +1,7 @@
-
 import * as express from 'express';
 import { mock } from 'jest-mock-extended';
-import {ServerLogger} from "../../../src/modules/shared/infrastructure/logger";
-import {ErrorMiddleware} from "../../../src/modules/shared/infrastructure/express/ErrorMiddleware";
+import { ServerLogger } from '../../../src/modules/shared/infrastructure/logger';
+import { ErrorMiddleware } from '../../../src/modules/shared/infrastructure/express/ErrorMiddleware';
 import { Router } from '../../../src/modules/shared/infrastructure/Router';
 
 describe('Router', () => {

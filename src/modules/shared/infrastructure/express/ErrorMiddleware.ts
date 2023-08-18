@@ -40,11 +40,7 @@ export class ErrorMiddleware {
     }
   };
 
-  public globalErrorHandler = (
-    err: Error,
-    req: Request,
-    res: Response,
-  ): Response => {
+  public globalErrorHandler = (err: Error, req: Request, res: Response): Response => {
     this.logger.error(err.message);
     return res.status(this.defaultHttpErrorCode).json({
       status: this.defaultHttpErrorCode,

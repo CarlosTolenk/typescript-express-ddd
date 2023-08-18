@@ -1,5 +1,4 @@
 export abstract class AggregateRoot {
-    protected constructor() {
-    }
-    abstract toPrimitives(): any;
+  protected constructor() {}
+  abstract toPrimitives(): any;
 }

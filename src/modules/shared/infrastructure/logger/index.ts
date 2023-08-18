@@ -1,10 +1,9 @@
-
 import { createLogger, format, transports, Logger } from 'winston';
 import appRoot from 'app-root-path';
 import path from 'path';
 import fs from 'fs';
 
-import {ILogger} from "../../domain/ILogger";
+import { ILogger } from '../../domain/ILogger';
 import { Configuration } from '../../../../config';
 
 export class ServerLogger implements ILogger {

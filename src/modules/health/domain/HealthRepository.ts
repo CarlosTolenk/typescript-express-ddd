@@ -1,5 +1,5 @@
-import {Health} from "./Health";
+import { Health } from './Health';
 
 export interface HealthRepository {
-    check(): Promise<Health>
+  check(): Promise<Health>;
 }
