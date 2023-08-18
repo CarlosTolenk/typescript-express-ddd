@@ -10,7 +10,7 @@ export class GetHealthCheck {
 
     public invoke(): Promise<Health> {
         try {
-            return this.healthRepository.find();
+            return this.healthRepository.check();
         } catch (error) {
             throw error
         }

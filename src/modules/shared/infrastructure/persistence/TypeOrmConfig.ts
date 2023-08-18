@@ -1,8 +1,8 @@
 export interface TypeOrmConfigBase {
-    type: string;
     database: string;
     target: 'production' | 'development' | 'test'
 }
+
 export interface TypeOrmConfig extends TypeOrmConfigBase {
     host: string;
     port: number;
