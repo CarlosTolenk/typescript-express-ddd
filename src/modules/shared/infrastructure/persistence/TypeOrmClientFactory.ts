@@ -4,8 +4,12 @@ import { glob } from 'glob';
 
 import { Configuration } from '../../../../config';
 import { TypeOrmConfigFactory } from './TypeOrmConfigFactory';
+import { ILogger } from '../../domain/ILogger';
 
-export const TypeOrmClientFactory = async (config: Configuration): Promise<DataSource> => {
+export const TypeOrmClientFactory = async (
+  config: Configuration,
+  logger: ILogger
+): Promise<DataSource> => {
   const entities = glob.sync(
     path.join(__dirname, '../../../../modules/*/infrastructure/persistence/*.entity.ts')
   );
@@ -33,6 +37,7 @@ export const TypeOrmClientFactory = async (config: Configuration): Promise<DataS
       logging: true
     });
   } catch (error) {
+    logger.error(error.message);
     throw error;
   }
 };
