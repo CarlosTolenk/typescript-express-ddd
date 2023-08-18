@@ -23,6 +23,6 @@ const environment = {
   production: PRODUCTION,
   test: TEST
 };
-let currentConfig: Configuration = environment[NODE_ENV] ?? DEVELOPMENT;
+const currentConfig: Configuration = environment[NODE_ENV] ?? DEVELOPMENT;
 
 export { currentConfig as config };

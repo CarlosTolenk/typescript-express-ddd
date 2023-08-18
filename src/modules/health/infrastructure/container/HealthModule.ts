@@ -13,7 +13,7 @@ import {TypeOrmHealthRepository} from "../persistence/TypeOrmHealthRepository";
 // UseCases
 import {GetHealthCheck} from "../../application/useCases/GetHealthCheck";
 
-export const ModuleHealth = {
+export const HealthModule = {
     healthRouter: asFunction(HealthRouter).singleton(),
     getHealthController: asClass(GetHealthCheckController).singleton(),
     getLivenessController: asClass(GetLivenessController).singleton(),
