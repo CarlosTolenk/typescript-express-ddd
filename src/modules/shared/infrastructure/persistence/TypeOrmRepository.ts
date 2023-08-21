@@ -2,7 +2,7 @@ import { Connection, EntitySchema, Repository } from 'typeorm';
 import { QueryRunner } from 'typeorm/query-runner/QueryRunner';
 import { AggregateRoot } from '../../domain/AggregateRoot';
 
-export abstract class TypeOrmRepository<T extends AggregateRoot> {
+export abstract class TypeOrmRepository<T extends AggregateRoot<any>> {
   public constructor(private clientFactoryDB: Promise<Connection>) {}
 
   protected abstract entitySchema(): EntitySchema<T>;

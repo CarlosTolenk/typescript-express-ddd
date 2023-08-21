@@ -1,6 +1,6 @@
 import { AggregateRoot } from '../../shared/domain/AggregateRoot';
 
-export class Health extends AggregateRoot {
+export class Health extends AggregateRoot<string> {
   status: string;
   id: string;
 

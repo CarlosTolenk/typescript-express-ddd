@@ -1,5 +1,6 @@
 import { EntitySchema } from 'typeorm';
-import { Order, StatusEnum } from '../../domain/Order';
+import { Order } from '../../domain/Order';
+import { StatusEnum } from '../../domain/OrderStatus';
 
 export const OrderEntity = new EntitySchema<Order>({
   name: 'Order',
