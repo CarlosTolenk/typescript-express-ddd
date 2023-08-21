@@ -4,13 +4,13 @@ import path from 'path';
 import fs from 'fs';
 
 import { ILogger } from '../../domain/ILogger';
-import { Configuration } from '../../../../config';
+import { IConfiguration } from '../../../../config';
 
 export class ServerLogger implements ILogger {
   private logger: Logger;
   private readonly logsDirectory: string;
 
-  constructor(private config: Configuration) {
+  constructor(private config: IConfiguration) {
     this.logsDirectory = path.resolve(`${appRoot}`, 'logs');
     fs.existsSync(this.logsDirectory) || fs.mkdirSync(this.logsDirectory);
 

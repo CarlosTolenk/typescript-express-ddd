@@ -7,7 +7,7 @@ dotenv.config();
 
 const { NODE_ENV } = process.env;
 
-export type Configuration = {
+export type IConfiguration = {
   NODE_ENV: string;
   PORT: number;
   APP_NAME: string;
@@ -23,6 +23,6 @@ const environment = {
   production: PRODUCTION,
   test: TEST
 };
-const currentConfig: Configuration = environment[NODE_ENV] ?? DEVELOPMENT;
+const currentConfig: IConfiguration = environment[NODE_ENV] ?? DEVELOPMENT;
 
 export { currentConfig as config };

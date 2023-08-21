@@ -1,6 +1,6 @@
-import { Configuration } from '../';
+import { IConfiguration } from '../';
 
-const TEST: Configuration = {
+const TEST: IConfiguration = {
   NODE_ENV: 'test',
   PORT: 3000,
   APP_NAME: 'express-ts-test-ddd',

@@ -1,4 +1,4 @@
-import { Configuration } from '../../../../config';
+import { IConfiguration } from '../../../../config';
 import { TypeOrmConfig } from './TypeOrmConfig';
 
 const environment = {
@@ -7,7 +7,7 @@ const environment = {
 };
 
 export class TypeOrmConfigFactory {
-  static createConfig(configuration: Configuration): TypeOrmConfig {
+  static createConfig(configuration: IConfiguration): TypeOrmConfig {
     const currentTarget = environment[configuration.NODE_ENV] ?? 'development';
     return {
       host: configuration.DATABASE_APP_HOST,

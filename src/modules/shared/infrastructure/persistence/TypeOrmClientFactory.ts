@@ -2,12 +2,12 @@ import { createConnection, DataSource } from 'typeorm';
 import path from 'path';
 import { glob } from 'glob';
 
-import { Configuration } from '../../../../config';
+import { IConfiguration } from '../../../../config';
 import { TypeOrmConfigFactory } from './TypeOrmConfigFactory';
 import { ILogger } from '../../domain/ILogger';
 
 export const TypeOrmClientFactory = async (
-  config: Configuration,
+  config: IConfiguration,
   logger: ILogger
 ): Promise<DataSource> => {
   const entities = glob.sync(

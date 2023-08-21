@@ -1,6 +1,6 @@
-import { Configuration } from '../';
+import { IConfiguration } from '../';
 
-const Development: Configuration = {
+const Development: IConfiguration = {
   NODE_ENV: 'development',
   PORT: +(process.env.PORT || 3000),
   APP_NAME: process.env.APP_NAME || 'typescript-express-ddd',
