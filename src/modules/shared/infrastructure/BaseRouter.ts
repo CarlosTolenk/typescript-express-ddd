@@ -6,7 +6,7 @@ import compression from 'compression';
 
 import { ErrorMiddleware } from './express/ErrorMiddleware';
 
-export const Router = (
+export const BaseRouter = (
   healthRouter: ExpressRouter,
   orderRouter: ExpressRouter,
   errorMiddleware: ErrorMiddleware
@@ -28,7 +28,7 @@ export const Router = (
     return res.json({ status: 'Up Application' });
   });
   router.use(healthRouter);
-  router.use(orderRouter);
+  router.use('/api/v1', orderRouter);
   router.use(errorMiddleware.routeNotFoundErrorHandler);
   router.use(errorMiddleware.clientErrorHandler);
   router.use(errorMiddleware.customErrorHandler);

@@ -2,7 +2,7 @@ import * as express from 'express';
 import { mock } from 'jest-mock-extended';
 import { ServerLogger } from '../../../src/modules/shared/infrastructure/logger';
 import { ErrorMiddleware } from '../../../src/modules/shared/infrastructure/express/ErrorMiddleware';
-import { Router } from '../../../src/modules/shared/infrastructure/Router';
+import { BaseRouter } from '../../../src/modules/shared/infrastructure/BaseRouter';
 
 describe('Router', () => {
   it('should return router', () => {
@@ -14,7 +14,7 @@ describe('Router', () => {
     const errorMiddleware = new ErrorMiddleware(mockedServerLogger);
 
     // when
-    const router = Router(healthRouter, orderRouter, errorMiddleware);
+    const router = BaseRouter(healthRouter, orderRouter, errorMiddleware);
 
     // then
     expect(router).toBeDefined();

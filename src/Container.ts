@@ -9,7 +9,7 @@ import {
 
 //Shared infrastructure implementations
 import { Server } from './modules/shared/infrastructure/Server';
-import { Router } from './modules/shared/infrastructure/Router';
+import { BaseRouter } from './modules/shared/infrastructure/BaseRouter';
 import { ErrorMiddleware } from './modules/shared/infrastructure/express/ErrorMiddleware';
 import { ServerLogger } from './modules/shared/infrastructure/logger';
 import { TypeOrmClientFactory } from './modules/shared/infrastructure/persistence/TypeOrmClientFactory';
@@ -37,7 +37,7 @@ export class Container {
       .register({
         server: asClass(Server).singleton(),
         config: asValue(config),
-        router: asFunction(Router).singleton(),
+        router: asFunction(BaseRouter).singleton(),
         logger: asClass(ServerLogger).singleton(),
         clientFactoryDB: asFunction(TypeOrmClientFactory).singleton(),
         errorMiddleware: asClass(ErrorMiddleware).singleton()
