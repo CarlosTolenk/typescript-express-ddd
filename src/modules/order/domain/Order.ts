@@ -5,10 +5,18 @@ export enum StatusEnum {
   CANCELLED = 2,
   FINISHED
 }
-
-export class Order extends AggregateRoot {
+interface IOrderPrimitive {
+  id: string;
+  status: string;
+}
+export class Order extends AggregateRoot<IOrderPrimitive> {
   id: string;
   status: StatusEnum;
 
-  toPrimitives(): any {}
+  toPrimitives(): IOrderPrimitive {
+    return {
+      id: this.id,
+      status: this.status.toString()
+    };
+  }
 }

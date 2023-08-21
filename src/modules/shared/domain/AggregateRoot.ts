@@ -1,4 +1,4 @@
-export abstract class AggregateRoot {
+export abstract class AggregateRoot<T> {
   protected constructor() {}
-  abstract toPrimitives(): any;
+  abstract toPrimitives(): T;
 }

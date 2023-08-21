@@ -1,10 +1,10 @@
-import { EntitySchema } from 'typeorm';
+import {EntitySchema} from 'typeorm';
 
-import { OrderRepository } from '../../domain/OrderRepository';
-import { Order } from '../../domain/Order';
+import {OrderRepository} from '../../domain/OrderRepository';
+import {Order} from '../../domain/Order';
 
-import { TypeOrmRepository } from '../../../shared/infrastructure/persistence/TypeOrmRepository';
-import { OrderEntity } from './Order.entity';
+import {TypeOrmRepository} from '../../../shared/infrastructure/persistence/TypeOrmRepository';
+import {OrderEntity} from './Order.entity';
 
 export class TypeOrmOrderRepository extends TypeOrmRepository<Order> implements OrderRepository {
   protected entitySchema(): EntitySchema<Order> {
@@ -12,8 +12,6 @@ export class TypeOrmOrderRepository extends TypeOrmRepository<Order> implements 
   }
   async getAll(): Promise<Order[]> {
     const repository = await this.repository();
-    const orders = await repository.find();
-    console.log(orders);
-    return orders;
+    return await repository.find();
   }
 }
