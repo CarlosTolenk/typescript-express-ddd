@@ -2,7 +2,7 @@ import express from 'express';
 import { AddressInfo } from 'net';
 import * as http from 'http';
 import { Configuration } from '../../../config';
-import { ServerLogger } from './logger';
+import { ILogger } from '../domain/ILogger';
 
 export class Server {
   private readonly express: express.Application;
@@ -10,7 +10,7 @@ export class Server {
 
   constructor(
     private router: express.Router,
-    private logger: ServerLogger,
+    private logger: ILogger,
     private config: Configuration
   ) {
     this.express = express();

@@ -3,13 +3,13 @@ import StatusCode from 'http-status-codes';
 
 import { IController } from '../../../../shared/infrastructure/express/IController';
 import { ErrorHandler } from '../../../../shared/domain/ErrorHandler';
-import { ServerLogger } from '../../../../shared/infrastructure/logger';
+import { ILogger } from '../../../../shared/domain/ILogger';
 
 // UseCases
 import { GetAllOrders } from '../../../application/useCases/GetAllOrders';
 
 export class GetAllOrdersController implements IController {
-  constructor(private logger: ServerLogger, private getAllOrders: GetAllOrders) {}
+  constructor(private logger: ILogger, private getAllOrders: GetAllOrders) {}
   async invoke(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
       this.logger.info('Try Invoke', { controller: GetAllOrdersController.name });

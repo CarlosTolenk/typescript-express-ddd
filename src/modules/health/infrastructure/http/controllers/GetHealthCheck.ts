@@ -3,14 +3,14 @@ import StatusCode from 'http-status-codes';
 
 import { ErrorHandler } from '../../../../shared/domain/ErrorHandler';
 import { IController } from '../../../../shared/infrastructure/express/IController';
-import { ServerLogger } from '../../../../shared/infrastructure/logger';
 import { GetHealthCheck } from '../../../application/useCases/GetHealthCheck';
+import { ILogger } from '../../../../shared/domain/ILogger';
 
 export class GetHealthCheckController implements IController {
-  private logger: ServerLogger;
+  private logger: ILogger;
   private getHealthCheck: GetHealthCheck;
 
-  constructor(logger: ServerLogger, getHealthCheck: GetHealthCheck) {
+  constructor(logger: ILogger, getHealthCheck: GetHealthCheck) {
     this.logger = logger;
     this.getHealthCheck = getHealthCheck;
   }

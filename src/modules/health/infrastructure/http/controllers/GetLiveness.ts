@@ -1,11 +1,10 @@
-import { IController } from '../../../../shared/infrastructure/express/IController';
-import { ServerLogger } from '../../../../shared/infrastructure/logger';
-import { ErrorHandler } from '../../../../shared/domain/ErrorHandler';
-import StatusCode from 'http-status-codes';
 import { NextFunction, Request, Response } from 'express';
 
+import { IController } from '../../../../shared/infrastructure/express/IController';
+import { ILogger } from '../../../../shared/domain/ILogger';
+
 export class GetLivenessController implements IController {
-  constructor(private logger: ServerLogger) {}
+  constructor(private logger: ILogger) {}
 
   public async invoke(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     this.logger.info('Try Invoke', { controller: GetLivenessController.name });
