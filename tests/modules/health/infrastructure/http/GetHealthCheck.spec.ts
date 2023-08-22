@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { createMock } from 'ts-auto-mock';
+import { mock } from 'jest-mock-extended';
 
 import { GetHealthCheckController } from '../../../../../src/modules/health/infrastructure/http/controllers/GetHealthCheck';
 import { GetHealthCheck } from '../../../../../src/modules/health/application/useCases/GetHealthCheck';
@@ -10,12 +10,12 @@ import StatusCode from 'http-status-codes';
 describe('GetHealthCheckController', () => {
   it('should invoke HealthCheck Controller', async () => {
     // given
-    const loggerMock = createMock<ServerLogger>();
-    const mockedHealthCheckService = createMock<GetHealthCheck>({
+    const loggerMock = mock<ServerLogger>();
+    const mockedHealthCheckService = mock<GetHealthCheck>({
       run: jest.fn().mockResolvedValueOnce({})
     });
     const mockedRequest = {} as Request;
-    const mockedResponse = createMock<Response>({
+    const mockedResponse = mock<Response>({
       json: jest.fn()
     });
     const mockedNext = jest.fn();
@@ -34,12 +34,12 @@ describe('GetHealthCheckController', () => {
 
   it('should invoke HealthCheck Controller when error', async () => {
     // given
-    const loggerMock = createMock<ServerLogger>();
-    const mockedHealthCheckService = createMock<GetHealthCheck>({
+    const loggerMock = mock<ServerLogger>();
+    const mockedHealthCheckService = mock<GetHealthCheck>({
       run: jest.fn().mockRejectedValueOnce(new Error('Error'))
     });
     const mockedRequest = {} as Request;
-    const mockedResponse = createMock<Response>({
+    const mockedResponse = mock<Response>({
       json: jest.fn()
     });
     const mockedNext = jest.fn();

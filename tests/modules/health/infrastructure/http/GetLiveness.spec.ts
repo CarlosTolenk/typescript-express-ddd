@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { createMock } from 'ts-auto-mock';
+import { mock } from 'jest-mock-extended';
 
 import { ServerLogger } from '../../../../../src/modules/shared/infrastructure/logger';
 import { GetLivenessController } from '../../../../../src/modules/health/infrastructure/http/controllers/GetLiveness';
@@ -7,9 +7,9 @@ import { GetLivenessController } from '../../../../../src/modules/health/infrast
 describe('GetLivenessController', () => {
   it('should invoke Liveness Controller', async () => {
     // given
-    const loggerMock = createMock<ServerLogger>();
+    const loggerMock = mock<ServerLogger>();
     const mockedRequest = {} as Request;
-    const mockedResponse = createMock<Response>({
+    const mockedResponse = mock<Response>({
       json: jest.fn()
     });
     const mockedNext = jest.fn();

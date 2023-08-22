@@ -1,11 +1,12 @@
 import { Router as ExpressRouter } from 'express';
-import { createMock } from 'ts-auto-mock';
+import { mock } from 'jest-mock-extended';
+
 import { ServerLogger } from '../../../src/modules/shared/infrastructure/logger';
 import { Server } from '../../../src/modules/shared/infrastructure/Server';
 import { config } from '../../../src/config';
 
 describe('Server', () => {
-  const mockedServerLogger = createMock<ServerLogger>();
+  const mockedServerLogger = mock<ServerLogger>();
   const server = new Server(ExpressRouter(), mockedServerLogger, config);
 
   it('should return an express Application instance', () => {
