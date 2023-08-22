@@ -13,11 +13,7 @@ export class GetHealthCheck implements UseCase<Health> {
   }
 
   public run(): Promise<Health> {
-    try {
-      return this.healthRepository.check();
-    } catch (error) {
-      this.logger.error(error.message);
-      throw error;
-    }
+    this.logger.info('Try health check', {});
+    return this.healthRepository.check();
   }
 }
