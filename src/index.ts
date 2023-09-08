@@ -2,7 +2,7 @@ import { Server } from './modules/shared/infrastructure/Server';
 import { Container } from './Container';
 import { IConfiguration } from './config';
 
-const container = new Container();
+const container = Container.getInstance();
 const server = container.invoke().resolve<Server>('server');
 const config = container.invoke().resolve<IConfiguration>('config');
 

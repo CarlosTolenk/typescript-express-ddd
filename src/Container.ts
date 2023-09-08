@@ -23,13 +23,22 @@ import { OrderModule } from './modules/order/infrastructure/container/OrderModul
 
 export class Container {
   private readonly container: AwilixContainer;
+  private static instance: Container;
 
-  constructor() {
+  private constructor() {
     this.container = createContainer({
       injectionMode: InjectionMode.CLASSIC
     });
 
     this.register();
+  }
+
+  public static getInstance(): Container {
+    if (!Container.instance) {
+      Container.instance = new Container();
+    }
+
+    return Container.instance;
   }
 
   public register(): void {
